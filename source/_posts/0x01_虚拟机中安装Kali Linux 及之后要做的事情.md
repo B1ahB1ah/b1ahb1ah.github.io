@@ -1,7 +1,7 @@
 ---
 title: 0x01.虚拟机中安装Kali Linux 及之后要做的事情
 date: 2018-05-28 00:51:56
-tags:
+tags: Kali
 ---
 
 

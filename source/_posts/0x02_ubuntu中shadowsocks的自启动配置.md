@@ -1,7 +1,7 @@
 ---
 title:  0x02_ubuntu中shadowsocks自启动配置
 date: 2018-06-06 00:51:56
-tags:
+tags: shadowsocks
 ---
 
 ### 安装shadowsocks
