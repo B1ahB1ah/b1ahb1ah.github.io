@@ -12,7 +12,8 @@ tags: Kali
 
 [安装 Kali Linux 2018.1 及之后的事](https://blog.csdn.net/metaphorxi/article/details/79639862)
 
-
+---
+---
 
 ## 2. Kali Linux 在虚拟机中的安装
 
@@ -99,8 +100,11 @@ sudo apt-get update#更新软件
 sudo apt-get upgrade
 sudo apt-get dist-upgrade #升级系统
 ```
+<br />
 
+---
 
+---
 
 ## 3. Kali安装后的用户体验提升
 
