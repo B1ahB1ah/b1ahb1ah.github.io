@@ -3,7 +3,8 @@
 
 e-mail: wh1tewalker.xd@gmail.com
 
-
+## 2019.02.21 01:29
+  -将backup分支下Myblog/中文件全部移植根目录下
 
 ## 2019.02.21 01:14 
   -删除./theme中.git/文件夹 修复了backup分支中主题文件缺失bug
