@@ -1,5 +1,5 @@
 ---
-title:  0x02_ubuntu中shadowsocks自启动配置
+title:  0x02_ubuntu中shadowsocks配置
 date: 2018-06-06 00:51:56
 tags: shadowsocks
 ---
@@ -38,6 +38,4 @@ sudo vim /home/user/tools/shadowsocks.json
 但是每次开机都要手动输入太low了不是.
 
 
-
-### shadowsocks开机自启动设置
 

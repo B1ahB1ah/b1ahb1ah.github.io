@@ -74,7 +74,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -99,14 +99,14 @@
   <meta name="description" content="安装shadowsocks首先你得有一个shadowsocks帐号,可以自己购买VPS搭建,也可购买,这里就不多叙述了. 安装shadowsocks 1sudo apt-get install shadowsocks 设置shadowsocks.json配置文件我一般把他存在/home/user/tools/里,进入目录 1sudo vim /home/user/tools/shadowsocks">
 <meta name="keywords" content="shadowsocks">
 <meta property="og:type" content="article">
-<meta property="og:title" content="0x02_ubuntu中shadowsocks自启动配置">
-<meta property="og:url" content="http://yoursite.com/2018/06/06/0x02_ubuntu中shadowsocks的自启动配置/index.html">
+<meta property="og:title" content="0x02_ubuntu中shadowsocks配置">
+<meta property="og:url" content="http://yoursite.com/2018/06/06/0x02_ubuntu中shadowsocks的配置/index.html">
 <meta property="og:site_name" content="B1ah">
 <meta property="og:description" content="安装shadowsocks首先你得有一个shadowsocks帐号,可以自己购买VPS搭建,也可购买,这里就不多叙述了. 安装shadowsocks 1sudo apt-get install shadowsocks 设置shadowsocks.json配置文件我一般把他存在/home/user/tools/里,进入目录 1sudo vim /home/user/tools/shadowsocks">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-20T17:42:54.801Z">
+<meta property="og:updated_time" content="2019-02-21T13:37:20.529Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="0x02_ubuntu中shadowsocks自启动配置">
+<meta name="twitter:title" content="0x02_ubuntu中shadowsocks配置">
 <meta name="twitter:description" content="安装shadowsocks首先你得有一个shadowsocks帐号,可以自己购买VPS搭建,也可购买,这里就不多叙述了. 安装shadowsocks 1sudo apt-get install shadowsocks 设置shadowsocks.json配置文件我一般把他存在/home/user/tools/里,进入目录 1sudo vim /home/user/tools/shadowsocks">
 
 
@@ -116,7 +116,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/06/0x02_ubuntu中shadowsocks的自启动配置/">
+  <link rel="canonical" href="http://yoursite.com/2018/06/06/0x02_ubuntu中shadowsocks的配置/">
 
 
 
@@ -126,7 +126,7 @@
   };
 </script>
 
-  <title>0x02_ubuntu中shadowsocks自启动配置 | B1ah</title>
+  <title>0x02_ubuntu中shadowsocks配置 | B1ah</title>
   
 
 
@@ -397,7 +397,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/06/0x02_ubuntu中shadowsocks的自启动配置/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/06/0x02_ubuntu中shadowsocks的配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="B1ah">
@@ -414,7 +414,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">0x02_ubuntu中shadowsocks自启动配置
+          <h1 class="post-title" itemprop="name headline">0x02_ubuntu中shadowsocks配置
 
               
             
@@ -457,7 +457,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-21 01:42:54" itemprop="dateModified" datetime="2019-02-21T01:42:54+08:00">2019-02-21</time>
+                <time title="修改时间：2019-02-21 21:37:20" itemprop="dateModified" datetime="2019-02-21T21:37:20+08:00">2019-02-21</time>
               
             
           </span>
@@ -500,7 +500,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        &quot;server&quot;:&quot;xx.xx.xx.xx&quot;,</span><br><span class="line">        &quot;server_port&quot;:9527,</span><br><span class="line">        &quot;local_address&quot;:&quot;127.0.0.1&quot;,</span><br><span class="line">        &quot;local_port&quot;:1080,</span><br><span class="line">        &quot;password&quot;:&quot;your_passwd&quot;,</span><br><span class="line">        &quot;timeout&quot;:300,</span><br><span class="line">        &quot;method&quot;:&quot;aes-256-cfb&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>接下来就可以用sslocal命令启动ss代理服务了.</p>
 <p>但是每次开机都要手动输入太low了不是.</p>
-<h3 id="shadowsocks开机自启动设置"><a href="#shadowsocks开机自启动设置" class="headerlink" title="shadowsocks开机自启动设置"></a>shadowsocks开机自启动设置</h3>
+
       
     </div>
 
@@ -760,7 +760,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装shadowsocks"><span class="nav-number">1.</span> <span class="nav-text">安装shadowsocks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shadowsocks开机自启动设置"><span class="nav-number">2.</span> <span class="nav-text">shadowsocks开机自启动设置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装shadowsocks"><span class="nav-number">1.</span> <span class="nav-text">安装shadowsocks</span></a></li></ol></div>
             
 
           </div>
@@ -771,6 +771,8 @@
       
         <div class="back-to-top">
           <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
           
         </div>
       
