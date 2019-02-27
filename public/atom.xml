@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-27T17:51:57.226Z</updated>
+  <updated>2019-02-27T18:57:42.165Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,28 +21,33 @@
     <link href="http://yoursite.com/2019/02/21/0x06_%E5%88%A9%E7%94%A8Github%E5%88%86%E6%94%AF%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%90%8C%E6%AD%A5%E7%AE%A1%E7%90%86%E5%8D%9A%E5%AE%A2/"/>
     <id>http://yoursite.com/2019/02/21/0x06_利用Github分支多平台同步管理博客/</id>
     <published>2019-02-20T19:26:46.000Z</published>
-    <updated>2019-02-27T17:51:57.226Z</updated>
-    
-    <content type="html"><![CDATA[<p>之前搭的博客许久没有使用 </p><p>面对凌乱的repo</p><p>一时不知从何下手 </p><p>一顿操作差点删库</p><p>查了很多B1og最后在知乎上结合两位大佬的经验理清了思路</p><hr><hr><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>  一台电脑上已有一个在用的博客，又新用了一台电脑，实现原电脑和新电脑都可以提交更新博客，实现同步或者说博客的版本管理。</p><h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ol><li>在原电脑上操作，给 <a href="https://link.zhihu.com/?target=http%3A//username.github.io" target="_blank" rel="noopener">username.github.io</a> 博客仓库创建<code>hexo</code>分支，并设为默认分支。（具体可参考<a href="https://link.zhihu.com/?target=https%3A//www.jianshu.com/p/0b1fccce74e0" target="_blank" rel="noopener">这篇文章</a>的操作，有图示）</li><li>如果未给你的 github 账号添加过当前电脑生成的 <code>ssh key</code>，需要创建 <code>ssh key</code> 并添加到 github 账号上。（如何创建和添加 <a href="https://link.zhihu.com/?target=https%3A//help.github.com/articles/connecting-to-github-with-ssh/" target="_blank" rel="noopener">github help</a> 就有）</li><li>随便一个目录下，命令行执行 <code>git clone git@github.com:username/username.github.io.git</code> 把仓库 clone 到本地。</li><li>显示所有隐藏文件和文件夹 (linux下进入目录后<code>ls -a &amp; rm -r xxx</code> )，进入刚才 clone 到本地的仓库，删掉除了 .git 文件夹以外的所有内容。</li><li>命令行 cd 到 clone 的仓库，<code>git add .</code> ，<code>git commit -m &quot;some description&quot;</code>，<code>git push origin hexo</code>，把刚才删除操作引起的本地仓库变化更新到远程，此时刷新下 github 端博客<code>hexo分支</code>，应该已经被清空了。</li><li>将上述 .git 文件夹复制到本机本地博客根目录下（即含有 themes、source 等文件夹的那个目录），现在可以把上述 clone 的本地仓库删掉了，因为它已经没有用了，本机博客目录已经变成可以和 hexo 分支相连的仓库了。</li><li>将博客目录下 themes 文件夹下每个主题文件夹里面的 .git .gitignore 删掉。</li><li>cd 到博客目录，<code>git add -A</code> ，<code>git commit -m &quot;some description&quot;</code>，<code>git push origin hexo</code>，将博客目录下所有文件更新到 hexo 分支。如果上一步没有删掉 .git .gitignore，主题文件夹下内容将传不上去。至此原电脑上的操作结束。</li><li>在新电脑上操作，先把新电脑上环境安装好，<code>node.js</code>、<code>git</code>、<code>hexo</code>、<code>ssh key</code> 也创建和添加好。</li><li>安装hexo：<code>npm install -g hexo-cli</code>。</li><li>选好博客安装的目录， <code>git clone git@github.com:username/username.github.io.git</code> 。</li><li>这个时候一般是默认分支，如果默认分支是<code>master</code>，那么需要在git中操作<code>checkout</code>切换到hexo配置文件那个分支，</li><li>cd 到博客目录，然后再根据packge.json安装依赖执行<code>npm install</code>。</li><li><code>hexo g</code> ，<code>hexo s</code>启动博客服务。正常的话，浏览器打开 <code>localhost:4000</code> 可以看到博客了。至此新电脑操作完毕。</li><li>以后无论在哪台电脑上，更新以及提交博客，依次执行，<code>git pull</code>，<code>git add -A</code> ，<code>git commit -m &quot;--&quot;</code>，<code>git push origin hexo</code>，<code>hexo clean</code> &amp;&amp; <code>hexo g</code> &amp;&amp; <code>hexo d</code> 即可。</li></ol><h4 id="给git配置sock5代理"><a href="#给git配置sock5代理" class="headerlink" title="给git配置sock5代理"></a>给git配置sock5代理</h4><blockquote><p>由于某些众所周知的缘故，所以github时不时的有时候速度会很慢，这种情况下本地代理就派上用场了。<br>这里以给git的SSH传输方式配置本地SS代理为例说下配置过程：<br>打开<code>~/.ssh/config</code>文件。<br>在<code>Host github *.github.com</code>下添加以下字段：<br><code>Proxycommand ssh -S 127.0.0.1:1080 %h %p</code><br>3.测试连接<br>保存退出后重启git bash。<br>输入<code>ssh -vT git@github.com</code>，当返回<code>Hi username! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code>的时候即说明配置成功<br>之后github的所有流量都会走本地的ss代理。</p></blockquote><p><br></p><h5 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h5><ol><li><p><a href="https://www.zhihu.com/question/21193762/answer/369050999" target="_blank" rel="noopener">https://www.zhihu.com/question/21193762/answer/369050999</a></p></li><li><p><a href="http://link.zhihu.com/?target=https%3A//www.jianshu.com/p/fceaf373d797" target="_blank" rel="noopener">http://link.zhihu.com/?target=https%3A//www.jianshu.com/p/fceaf373d797</a></p></li></ol><h5 id="来源：知乎"><a href="#来源：知乎" class="headerlink" title="来源：知乎"></a>来源：知乎</h5><p><em>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</em></p>]]></content>
+    <updated>2019-02-27T18:57:42.165Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;之前搭的博客许久没有使用 &lt;/p&gt;
+        
+        
+          &lt;p&gt;之前搭的博客许久没有使用 &lt;/p&gt;
 &lt;p&gt;面对凌乱的repo&lt;/p&gt;
 &lt;p&gt;一时不知从何下手 &lt;/p&gt;
 &lt;p&gt;一顿操作差点删库&lt;/p&gt;
 &lt;p&gt;查了很多B1og最后在知乎上结合两位大佬的经验理清了思路&lt;/p&gt;
 &lt;hr&gt;
 &lt;hr&gt;
-&lt;h4 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背
+&lt;h4 id=&quot;背景&quot;&gt;&lt;a
+        
       
     
     </summary>
     
+      <category term="hexo博客" scheme="http://yoursite.com/categories/hexo%E5%8D%9A%E5%AE%A2/"/>
     
-      <category term="Github branch 分支" scheme="http://yoursite.com/tags/Github-branch-%E5%88%86%E6%94%AF/"/>
+    
+      <category term="Github" scheme="http://yoursite.com/tags/Github/"/>
+    
+      <category term="branch" scheme="http://yoursite.com/tags/branch/"/>
     
   </entry>
   
@@ -51,26 +56,59 @@
     <link href="http://yoursite.com/2019/02/21/0x05_%E5%B8%B8%E7%94%A8Markdown%E8%AF%AD%E6%B3%95/"/>
     <id>http://yoursite.com/2019/02/21/0x05_常用Markdown语法/</id>
     <published>2019-02-20T18:55:46.000Z</published>
-    <updated>2019-02-21T13:37:34.528Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li style="list-style: none"><input type="checkbox"> 删除线（在文本两端各打俩~)</li></ul><p><del>这是删除线</del></p><ul><li><p>[ ] ##### 代码块（单独一行使用\<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">    这里是代码段</span><br></pre></td></tr></table></figure></p></li><li><p>[ ] ##### 添加空白行（新起一行，使用\<br>标识符)<br><br></p></li><li><p>[ ] ##### 分割线（新起一行使用***、+++或—可以生成分割线）</p></li></ul><hr><p>+++</p><hr><ul><li style="list-style: none"><input type="checkbox"> 同样支持转义字符 \<br>*              (*)<br>  #              (#)<br>  ` `      (``)<br>```         (```)</li></ul><ul><li style="list-style: none"><input type="checkbox"> ##### 无序列表基础语法（+或 -或 *加空格）</li></ul><ul><li>无序列表1     (* 无序列表1)</li></ul><ul><li>无序列表2      (- 无序列表2)</li></ul><ul><li>无序列表3          (+ 无序列表3)</li></ul><ul><li style="list-style: none"><input type="checkbox"> ##### 有序列表基础语法（数字加点加空格，会从第一个数字开始递增）</li></ul><ol start="3"><li>有序列表       （3. 有序列表）</li><li>有序列表       （2.有序列表）</li><li>有序列表3         （4.有序列表）</li><li>有序列表4    （666.有序列表）</li></ol><ul><li style="list-style: none"><input type="checkbox"> ##### 列表的层次（在列表符号前加空格）</li></ul><ul><li><p>列表层次1</p><ul><li>列表层次2<ul><li>列表层次3<ul><li>列表层次4 </li></ul></li></ul></li></ul></li></ul><ul><li style="list-style: none"><input type="checkbox"> ##### 标题的大小（#的数量加空格）</li></ul><h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><h4 id="标题4"><a href="#标题4" class="headerlink" title="标题4"></a>标题4</h4><h5 id="标题5"><a href="#标题5" class="headerlink" title="标题5"></a>标题5</h5><h6 id="标题6"><a href="#标题6" class="headerlink" title="标题6"></a>标题6</h6><ul><li><p>[ ] ##### 斜体(文字前后各用一个*)<br><em>我是斜体</em></p></li><li><p>[ ] ##### 粗体（文字前后各用2个*可以把文字变成粗体）<br><strong>我是粗体</strong> </p></li><li><p>[ ] ##### 斜粗体（文字前后各用3个<em>可以把文字变成斜粗体）<br>**</em>我是斜粗体***</p></li><li><p>[ ] ##### 引用的开始和结束（在行首使用&gt;标识符表示引用段的开始，新起一行用来退出引用模块）</p><blockquote><p>引用</p></blockquote></li></ul><p>退出引用</p><ul><li style="list-style: none"><input type="checkbox"> ##### 引用的分层（在行首连续使用多个&gt;可以对引用进行分层）</li></ul><blockquote><p>引用层次1</p><blockquote><p>引用层次2</p><blockquote><p>引用层次3</p></blockquote></blockquote></blockquote><blockquote><blockquote><p>引用层次2-1</p><blockquote><p>引用层次3-1</p></blockquote></blockquote></blockquote><blockquote><p>引用层次1-1</p></blockquote><ul><li><p>[ ] ##### 超链接（[链接名](url)）</p><p><a href="http://www.baidu.com/" target="_blank" rel="noopener">百度</a></p></li></ul><ul><li><p>[ ] ##### 图片(![图片名](图片链接))</p><p><img src alt></p></li></ul>]]></content>
+    <updated>2019-02-27T18:57:35.285Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;ul&gt;
+        
+        
+          &lt;ul&gt;
 &lt;li style=&quot;list-style: none&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt; 删除线（在文本两端各打俩~)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;del&gt;这是删除线&lt;/del&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;[ ] ##### 代码块（单独一行使用
+&lt;li&gt;&lt;p&gt;[ ] #####
+        
       
     
     </summary>
     
+      <category term="hexo博客" scheme="http://yoursite.com/categories/hexo%E5%8D%9A%E5%AE%A2/"/>
+    
     
       <category term="Markdown" scheme="http://yoursite.com/tags/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>0x04_hexo categories和tags页面不显示解决方法</title>
+    <link href="http://yoursite.com/2019/02/20/0x04_hexo%20categories%E5%92%8Ctags%E9%A1%B5%E9%9D%A2%E4%B8%8D%E6%98%BE%E7%A4%BA%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2019/02/20/0x04_hexo categories和tags页面不显示解决方法/</id>
+    <published>2019-02-19T18:55:06.000Z</published>
+    <updated>2019-02-27T19:14:30.319Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;BUG的发现&quot;&gt;&lt;a href=&quot;#BUG的发现&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="hexo博客" scheme="http://yoursite.com/categories/hexo%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+      <category term="categories" scheme="http://yoursite.com/tags/categories/"/>
+    
+      <category term="tags" scheme="http://yoursite.com/tags/tags/"/>
     
   </entry>
   
@@ -79,20 +117,22 @@
     <link href="http://yoursite.com/2019/02/17/0x03_B1og%20Renew/"/>
     <id>http://yoursite.com/2019/02/17/0x03_B1og Renew/</id>
     <published>2019-02-16T18:34:06.000Z</published>
-    <updated>2019-02-20T20:10:57.294Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="B1og-Renew"><a href="#B1og-Renew" class="headerlink" title="B1og Renew"></a>B1og Renew</h1><p>由于我的重度拖延症</p><p>很多事情都后知后觉 落后于人</p><p>像是临近毕业想起要兼职</p><p>或是考试在即才想起学习</p><p>抑或是服务器将到期才想起更新B1og..<br><br></p><p>如果说每个 <strong>拖延症患者</strong> 都是一名出色的鸽手</p><p>那我就是其中最三分钟热度的那只 <strong>咕咕咕</strong><br><br></p><p>- “我怕是又要三分钟热度了..”</p><p>- “那就先热三分钟再说。”</p><p>朋友在鼓(cui)励(geng)我更博时如是说。<br><br></p><p>说起我的这位朋友 </p><p>土澳张爱玲 </p><p>博览群书 广撒安利</p><p>未来社会学届又一颗冉冉升起的新星</p><p>虽许久未见 仍能对谈经典 竞事清谈</p><p>话题包括但不限于哲学、科幻、文学…</p><p>时常抛出直击灵魂的提问 </p><p>让我这个懒癌晚期患者不得不开始思考人生的意义</p><p>(跑题了跑题了..)<br><br></p><p>说了这么多</p><p>其实就想表达一件事</p><p>江南鸽王更新啦！！！</p><p>重要但不说三遍了 省的日后打脸<br><br></p><p>附:</p><p>​    写完发现看不懂自己以前建的Branch了</p><p>​    控制命令全忘光</p><p>​    密钥也gg</p><p>​    终于爬上来了..</p><p>​        久等(虽然也没啥人等)</p>]]></content>
+    <updated>2019-02-27T18:31:42.940Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;B1og-Renew&quot;&gt;&lt;a href=&quot;#B1og-Renew&quot; class=&quot;headerlink&quot; title=&quot;B1og Renew&quot;&gt;&lt;/a&gt;B1og Renew&lt;/h1&gt;&lt;p&gt;由于我的重度拖延症&lt;/p&gt;
-&lt;p&gt;很多事情都后知后觉 落后于人&lt;/p&gt;
-&lt;p
+        
+        
+          &lt;h1 id=&quot;B1og-Renew&quot;&gt;&lt;a href=&quot;#B1og-Renew&quot; class=&quot;headerlink&quot; title=&quot;B1og Renew&quot;&gt;&lt;/a&gt;B1og Renew&lt;/h1&gt;&lt;p&gt;由于我的重度拖延症&lt;/p&gt;
+&lt;p&gt;很多事情都后知后觉
+        
       
     
     </summary>
+    
+      <category term="日常" scheme="http://yoursite.com/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
       <category term="鸽手闲话" scheme="http://yoursite.com/tags/%E9%B8%BD%E6%89%8B%E9%97%B2%E8%AF%9D/"/>
@@ -104,18 +144,21 @@
     <link href="http://yoursite.com/2018/06/06/0x02_ubuntu%E4%B8%ADshadowsocks%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
     <id>http://yoursite.com/2018/06/06/0x02_ubuntu中shadowsocks的配置/</id>
     <published>2018-06-05T16:51:56.000Z</published>
-    <updated>2019-02-21T13:37:20.529Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="安装shadowsocks"><a href="#安装shadowsocks" class="headerlink" title="安装shadowsocks"></a>安装shadowsocks</h3><p>首先你得有一个shadowsocks帐号,可以自己购买VPS搭建,也可购买,这里就不多叙述了.</p><p>安装shadowsocks</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install shadowsocks</span><br></pre></td></tr></table></figure><p>设置shadowsocks.json配置文件我一般把他存在/home/user/tools/里,进入目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /home/user/tools/shadowsocks.json</span><br></pre></td></tr></table></figure><p>格式如下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        &quot;server&quot;:&quot;xx.xx.xx.xx&quot;,</span><br><span class="line">        &quot;server_port&quot;:9527,</span><br><span class="line">        &quot;local_address&quot;:&quot;127.0.0.1&quot;,</span><br><span class="line">        &quot;local_port&quot;:1080,</span><br><span class="line">        &quot;password&quot;:&quot;your_passwd&quot;,</span><br><span class="line">        &quot;timeout&quot;:300,</span><br><span class="line">        &quot;method&quot;:&quot;aes-256-cfb&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>接下来就可以用sslocal命令启动ss代理服务了.</p><p>但是每次开机都要手动输入太low了不是.</p>]]></content>
+    <updated>2019-02-27T18:57:58.717Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;安装shadowsocks&quot;&gt;&lt;a href=&quot;#安装shadowsocks&quot; class=&quot;headerlink&quot; title=&quot;安装shadowsocks&quot;&gt;&lt;/a&gt;安装shadowsocks&lt;/h3&gt;&lt;p&gt;首先你得有一个shadowsocks帐号,可以自己购
+        
+        
+          &lt;h3 id=&quot;安装shadowsocks&quot;&gt;&lt;a href=&quot;#安装shadowsocks&quot; class=&quot;headerlink&quot;
+        
       
     
     </summary>
+    
+      <category term="shadowsocks" scheme="http://yoursite.com/categories/shadowsocks/"/>
     
     
       <category term="shadowsocks" scheme="http://yoursite.com/tags/shadowsocks/"/>
@@ -127,18 +170,21 @@
     <link href="http://yoursite.com/2018/05/28/0x01_%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85Kali%20Linux%20%E5%8F%8A%E4%B9%8B%E5%90%8E%E8%A6%81%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/"/>
     <id>http://yoursite.com/2018/05/28/0x01_虚拟机中安装Kali Linux 及之后要做的事情/</id>
     <published>2018-05-27T16:51:56.000Z</published>
-    <updated>2019-02-20T19:39:01.111Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-参考文献"><a href="#1-参考文献" class="headerlink" title="1. 参考文献"></a>1. 参考文献</h2><p><a href="https://blog.csdn.net/u012318074/article/details/71601382/" target="_blank" rel="noopener">Kali 安装详细步骤</a></p><p><a href="https://blog.csdn.net/metaphorxi/article/details/79639862" target="_blank" rel="noopener">安装 Kali Linux 2018.1 及之后的事</a></p><hr><hr><h2 id="2-Kali-Linux-在虚拟机中的安装"><a href="#2-Kali-Linux-在虚拟机中的安装" class="headerlink" title="2. Kali Linux 在虚拟机中的安装"></a>2. Kali Linux 在虚拟机中的安装</h2><h3 id="镜像下载"><a href="#镜像下载" class="headerlink" title="镜像下载"></a>镜像下载</h3><p>镜像源文件在清华资源站下载，使用VMware Workstation 12安装。</p><h3 id="创建普通用户"><a href="#创建普通用户" class="headerlink" title="创建普通用户"></a>创建普通用户</h3><p>一开始默认用root账户登录,一不小心就作了大死把bin目录全删了,重装了几次<br>血泪教训,还是保险点用普通用户+sudo吧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#创建用户</span><br><span class="line">useradd username -p password </span><br><span class="line">#删除用户</span><br><span class="line">userdel username</span><br></pre></td></tr></table></figure></p><h3 id="更换国内源"><a href="#更换国内源" class="headerlink" title="更换国内源"></a>更换国内源</h3><p>然后进行更换国内源，建议使用阿里云源：</p><p>首先打开 sources.list<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p><p>然后添加源（阿里云的源就够用啦）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#阿里云</span><br><span class="line">deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span><br><span class="line"></span><br><span class="line">#中科大</span><br><span class="line">deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</span><br><span class="line"></span><br><span class="line">#浙大</span><br><span class="line">deb http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-free</span><br><span class="line">deb-src http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-free</span><br><span class="line"></span><br><span class="line">#清华大学</span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free</span><br><span class="line"></span><br><span class="line">#官方源</span><br><span class="line">deb http://http.kali.org/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://http.kali.org/kali kali-rolling main non-free contrib</span><br></pre></td></tr></table></figure></p><h3 id="安装VMware-Tools"><a href="#安装VMware-Tools" class="headerlink" title="安装VMware Tools"></a>安装VMware Tools</h3><p>依次选择“虚拟机” –“安装VMware Tools”</p><p>加载完成后，复制VMware Tools-10.0.10***.tar.gz （不同版本具体名字不同）到 home 目录 tools 文件夹（tools文件夹需要手动创建），<br>解压：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf VMware Tools ***.tar.gz，VMware Tools ***.tar.gz</span><br></pre></td></tr></table></figure></p><p>根据自己文件内容要换成具体的文件名。<br>进入vmware-tools-distrib后执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./vmware-install.pl</span><br></pre></td></tr></table></figure></p><p>如果第一次询问是否安装，输入yes，之后一路回车即可，<br>看到Enjoy，–the WMware team即表示安装完成<br>重启后选择“进入全屏模式”，能进入全屏模式说明增强工具已经安装成功。</p><h3 id="更新系统数字签名"><a href="#更新系统数字签名" class="headerlink" title="更新系统数字签名"></a>更新系统数字签名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add</span><br></pre></td></tr></table></figure><p>很重要,很重要,真的很重要!!!<br>重要的事情说三遍,没有这一步t-get根本用不了</p><h3 id="更新软件包"><a href="#更新软件包" class="headerlink" title="更新软件包"></a>更新软件包</h3><p>依次执行下面三行代码,根据网速大概要15-20分钟<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update#更新软件</span><br><span class="line">sudo apt-get upgrade</span><br><span class="line">sudo apt-get dist-upgrade #升级系统</span><br></pre></td></tr></table></figure></p><p><br></p><hr><hr><h2 id="3-Kali安装后的用户体验提升"><a href="#3-Kali安装后的用户体验提升" class="headerlink" title="3. Kali安装后的用户体验提升"></a>3. Kali安装后的用户体验提升</h2><h3 id="安装中文输入法"><a href="#安装中文输入法" class="headerlink" title="安装中文输入法"></a>安装中文输入法</h3><p>由于Kali不自带中文输入法,所以,你懂得,自己动手风衣足食</p><p>下载搜狗输入法linux版：<a href="http://pinyin.sogou.com/linux/?r=pinyin" target="_blank" rel="noopener">搜狗输入法linux版</a><br>选择 64 位版本<br>确认下载完成后进入安装环节。</p><p>输入法需要用到 fcitx，所以需要先安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install fcitx fcitx-config-gtk2</span><br></pre></td></tr></table></figure></p><p>进入到“下载”目录中（可以使用复制粘贴），执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i sogoupinyin_2.1.0.0082_amd64.deb</span><br></pre></td></tr></table></figure></p><p>如果出现报依赖问题，根据提示输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -f</span><br></pre></td></tr></table></figure></p><p>重新执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i sogoupinyin_2.1.0.0082_amd64.deb</span><br></pre></td></tr></table></figure></p><p>重启后，使用shift键切换中英文输入法即可 </p><h3 id="安装谷歌chrome浏览器"><a href="#安装谷歌chrome浏览器" class="headerlink" title="安装谷歌chrome浏览器"></a>安装谷歌chrome浏览器</h3><p>这里我选择不使用自带的firefox浏览器,二者都是开源浏览器<br>但是有谷歌帐号的话用户体验差别不是一般的大啊,用过的肯定都知道: )<br>chrome登录后会自动同步书签,插件设置,主题设置,真正一键搞定啊有没有<br>大佬就是大佬,不像火狐”科学上网”安个插件都卡半天<br>废话不多说,开搞~</p><p>根据自己系统时32位或64位选择安装包,不过现在一般都是64位了吧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb</span><br></pre></td></tr></table></figure></p><p>cd进入下载目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i google-chrome-stable_current_amd64.deb</span><br></pre></td></tr></table></figure></p><p>Enjoy Chrome<br>要打开Google Chrome，请点击Unity Launcher顶部的“破折号”按钮，然后输入“Google Chrome”。与短语匹配的项目开始显示在搜索框下方。当显示“Google Chrome”项目时，点击它可启动Chrome。<br>如果有谷歌帐号,在下面翻墙后就可以很方便了.</p><h3 id="Kali翻墙—–shadowsocks-proxychains-chrome-switchyomega插件"><a href="#Kali翻墙—–shadowsocks-proxychains-chrome-switchyomega插件" class="headerlink" title="Kali翻墙—–shadowsocks+proxychains+chrome-switchyomega插件"></a>Kali翻墙—–shadowsocks+proxychains+chrome-switchyomega插件</h3><p>首先你得有一个shadowsocks帐号,可以自己购买VPS搭建,也可购买,这里就不多叙述了.</p><p>安装shadowsocks<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install shadowsocks</span><br></pre></td></tr></table></figure></p><p>设置shadowsocks.json配置文件<br>我一般把他存在/home/user/tools/里,进入目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /home/user/tools/shadowsocks.json</span><br></pre></td></tr></table></figure></p><p>格式如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        &quot;server&quot;:&quot;xx.xx.xx.xx&quot;,</span><br><span class="line">        &quot;server_port&quot;:9527,</span><br><span class="line">        &quot;local_address&quot;:&quot;127.0.0.1&quot;,</span><br><span class="line">        &quot;local_port&quot;:1080,</span><br><span class="line">        &quot;password&quot;:&quot;your_passwd&quot;,</span><br><span class="line">        &quot;timeout&quot;:300,</span><br><span class="line">        &quot;method&quot;:&quot;aes-256-cfb&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>启用本地ss服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#后台启动-d start本地服务</span><br><span class="line">sudo sslocal -c /home/user/tools/shadowsocks.json -d start</span><br></pre></td></tr></table></figure></p><p>利用proxychains暂时科学上网下载chrome插件<br>为什么要用proxychains呢?<br>因为要开启chrome代理,先要下载switchyomega插件,而要下载此插件,需要翻墙…<br>相当于switchyomega是chrome自带的代理插件,我们要先借助别的插件翻墙来安装chrome的插件<br>但proxychains只能分应用代理<br>面倒的丝..所以proxychains只做过渡用,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#安装</span><br><span class="line">sudo apt-get install proxychains</span><br></pre></td></tr></table></figure></p><p>配置proxychains<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/proxychains.conf</span><br></pre></td></tr></table></figure></p><p>注释其最下面一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">socks4 127.0.0.1 1080</span><br></pre></td></tr></table></figure></p><p>并添加一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">socks5 127.0.0.1 1080</span><br><span class="line">#注意!! 这里的地址要和你shadowsocks.json里的local_address与local_port一致</span><br></pre></td></tr></table></figure></p><p>proxychains使用<br>格式: proxychains + 应用名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxychains google-chrome</span><br></pre></td></tr></table></figure></p><p>此时打开的chrome浏览器就可以科学上网了</p><p>安装配置switchomega插件<br>打开chrome网上商店-搜索’swithyomega’-添加到chrome<br>在浏览器右上角会出现一个圆圈<br>右击圆圈–’选项’–在’proxy’选项中填入socks5代理(和proxychains配置一致)</p><p>之后配置”autoproxy”情景:</p><p><img src="/images/autoproxy.jpg" alt="xxxxxx"></p><p>其中”规则列表网址”为</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt</span><br></pre></td></tr></table></figure><p>完成后别忘了左边”应用选项”,最后关闭此页面 在右上角圆圈选择”autoproxy”</p><p>done!</p>]]></content>
+    <updated>2019-02-27T18:58:11.017Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;1-参考文献&quot;&gt;&lt;a href=&quot;#1-参考文献&quot; class=&quot;headerlink&quot; title=&quot;1. 参考文献&quot;&gt;&lt;/a&gt;1. 参考文献&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/u012318074/article/de
+        
+        
+          &lt;h2 id=&quot;1-参考文献&quot;&gt;&lt;a href=&quot;#1-参考文献&quot; class=&quot;headerlink&quot; title=&quot;1. 参考文献&quot;&gt;&lt;/a&gt;1. 参考文献&lt;/h2&gt;&lt;p&gt;&lt;a
+        
       
     
     </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
     
     
       <category term="Kali" scheme="http://yoursite.com/tags/Kali/"/>
@@ -146,22 +192,26 @@
   </entry>
   
   <entry>
-    <title>Ox00.Introduction</title>
-    <link href="http://yoursite.com/2018/05/25/0x00_introduction/"/>
-    <id>http://yoursite.com/2018/05/25/0x00_introduction/</id>
+    <title>Ox00.A To-do List</title>
+    <link href="http://yoursite.com/2018/05/25/0x00_A%20To-do%20List/"/>
+    <id>http://yoursite.com/2018/05/25/0x00_A To-do List/</id>
     <published>2018-05-24T16:51:56.000Z</published>
-    <updated>2019-02-20T20:21:22.088Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h2><h5 id="一只ID叫-废话-的不爱说废话的人鸽子"><a href="#一只ID叫-废话-的不爱说废话的人鸽子" class="headerlink" title="一只ID叫 废话 的不爱说废话的人鸽子"></a>一只ID叫 废话 的不爱说废话的<del>人</del>鸽子</h5><p><br></p><ul><li><h5 id="2018"><a href="#2018" class="headerlink" title="2018"></a>2018</h5></li></ul><h5 id="匆匆而过"><a href="#匆匆而过" class="headerlink" title="匆匆而过"></a>匆匆而过</h5><hr><ul><li><h5 id="2019"><a href="#2019" class="headerlink" title="2019"></a>2019</h5></li></ul><h5 id="克服倾诉欲-告别拖延症-尝试记录"><a href="#克服倾诉欲-告别拖延症-尝试记录" class="headerlink" title="克服倾诉欲   /   告别拖延症   /   尝试记录"></a>克服倾诉欲   /   告别拖延症   /   尝试记录</h5><hr><ul><li><h5 id="A-To-do-List"><a href="#A-To-do-List" class="headerlink" title="A To-do List"></a>A To-do List</h5><ul><li><h5 id="站点建设（评论etc-）"><a href="#站点建设（评论etc-）" class="headerlink" title="站点建设（评论etc.）"></a>站点建设（评论etc.）</h5></li><li><h5 id="自建图库"><a href="#自建图库" class="headerlink" title="自建图库"></a>自建图库</h5></li><li><h5 id="linux下搭建shadowsocksR并支持chacha20-ietf加密方式"><a href="#linux下搭建shadowsocksR并支持chacha20-ietf加密方式" class="headerlink" title="linux下搭建shadowsocksR并支持chacha20-ietf加密方式"></a>linux下搭建shadowsocksR并支持chacha20-ietf加密方式</h5></li><li><h5 id="连续LBS请求下位置隐私保护方案"><a href="#连续LBS请求下位置隐私保护方案" class="headerlink" title="连续LBS请求下位置隐私保护方案"></a>连续LBS请求下位置隐私保护方案</h5></li></ul></li></ul>]]></content>
+    <updated>2019-02-27T19:19:30.253Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;关于&quot;&gt;&lt;a href=&quot;#关于&quot; class=&quot;headerlink&quot; title=&quot;关于&quot;&gt;&lt;/a&gt;关于&lt;/h2&gt;&lt;h5 id=&quot;一只ID叫-废话-的不爱说废话的人鸽子&quot;&gt;&lt;a href=&quot;#一只ID叫-废话-的不爱说废话的人鸽子&quot; class=&quot;header
+        
+        
+          &lt;h3 id=&quot;A-To-do-List&quot;&gt;&lt;a href=&quot;#A-To-do-List&quot; class=&quot;headerlink&quot; title=&quot;A To-do List&quot;&gt;&lt;/a&gt;A To-do List&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;h5
+        
       
     
     </summary>
+    
+      <category term="日常" scheme="http://yoursite.com/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
       <category term="鸽手闲话" scheme="http://yoursite.com/tags/%E9%B8%BD%E6%89%8B%E9%97%B2%E8%AF%9D/"/>

@@ -5,7 +5,14 @@ e-mail: wh1tewalker.xd@gmail.com
 
 
 
+## 2019.02.28 03:12
+~~~
+-增加了 关于(about) 模块
+~~~
 
+~~~
+-增加了标签(tags) 和 分类(categories) 模块
+~~~
 
 
 ## 2019.02.21 01:14 

@@ -1,8 +1,9 @@
 ---
 title: 0x05_常用Markdown语法
 date: 2019-02-21 02:55:46
-tags: Markdown
-
+categories: hexo博客
+tags: 
+	- Markdown
 ---
 
 - [ ] 删除线（在文本两端各打俩~)

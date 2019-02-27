@@ -1,7 +1,10 @@
 ---
 title: 0x06_利用branch多平台同步管理Github博客
 date: 2019-02-21 03:26:46
-tags: Github branch 分支 
+categories: hexo博客
+tags: 
+	- Github 
+	- branch
 ---
 
 
