@@ -22,6 +22,8 @@ sudo apt-get install shadowsocks
 sudo vim /home/user/tools/shadowsocks.json
 ```
 
+<!-- more  -->
+
 格式如下
 
 ```

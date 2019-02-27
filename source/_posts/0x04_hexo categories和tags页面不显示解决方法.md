@@ -21,6 +21,8 @@ hexo new page "categories"
 
 <br />
 
+<!-- more -->
+
 #### 解决方法
 
 1. 编辑`/source/tags/index.md`，添加如下代码：

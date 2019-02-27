@@ -74,7 +74,11 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: next-reloaded
-# RSS订阅(以下为自添加代码）
+
+# --以下为自添加模块--
+# RSS订阅 / 搜索 
+
+# RSS订阅
 feed:
   type: atom
   path: atom.xml
@@ -83,6 +87,13 @@ feed:
   content:
   content_limit: 140
   content_limit_delim: ' '
+
+# 搜索
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[0xff_B1og Renew]]></title>
+    <url>%2F2333%2F02%2F17%2F0xff_B1og%20Renew%2F</url>
+    <content type="text"><![CDATA[B1og Renew由于我的重度拖延症 很多事情都后知后觉 落后于人 像是临近毕业想起要兼职 或是考试在即才想起学习 抑或是服务器将到期才想起更新B1og.. 如果说每个 拖延症患者 都是一名出色的鸽手 那我就是其中最三分钟热度的那只 咕咕咕 - “我怕是又要三分钟热度了..” - “那就先热三分钟再说。” 朋友在鼓(cui)励(geng)我更博时如是说。 说起我的这位朋友 土澳张爱玲 博览群书 广撒安利 未来社会学届又一颗冉冉升起的新星 虽许久未见 仍能对谈经典 竞事清谈 话题包括但不限于哲学、科幻、文学… 时常抛出直击灵魂的提问 让我这个懒癌晚期患者不得不开始思考人生的意义 (跑题了跑题了..) 说了这么多 其实就想表达一件事 江南鸽王更新啦！！！ 重要但不说三遍了 省的日后打脸 附: ​ 写完发现看不懂自己以前建的Branch了 ​ 控制命令全忘光 ​ 密钥也gg ​ 终于爬上来了.. ​ 久等(虽然也没啥人等)]]></content>
+      <categories>
+        <category>置顶</category>
+      </categories>
+      <tags>
+        <tag>鸽手闲话</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[0x06_利用branch多平台同步管理Github博客]]></title>
+    <url>%2F2019%2F02%2F21%2F0x06_%E5%88%A9%E7%94%A8Github%E5%88%86%E6%94%AF%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%90%8C%E6%AD%A5%E7%AE%A1%E7%90%86%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[之前搭的博客许久没有使用 面对凌乱的repo 一时不知从何下手 一顿操作差点删库 查了很多B1og最后在知乎上结合两位大佬的经验理清了思路 背景 一台电脑上已有一个在用的博客，又新用了一台电脑，实现原电脑和新电脑都可以提交更新博客，实现同步或者说博客的版本管理。 步骤 在原电脑上操作，给 username.github.io 博客仓库创建hexo分支，并设为默认分支。（具体可参考这篇文章的操作，有图示） 如果未给你的 github 账号添加过当前电脑生成的 ssh key，需要创建 ssh key 并添加到 github 账号上。（如何创建和添加 github help 就有） 随便一个目录下，命令行执行 git clone git@github.com:username/username.github.io.git 把仓库 clone 到本地。 显示所有隐藏文件和文件夹 (linux下进入目录后ls -a &amp; rm -r xxx )，进入刚才 clone 到本地的仓库，删掉除了 .git 文件夹以外的所有内容。 命令行 cd 到 clone 的仓库，git add . ，git commit -m &quot;some description&quot;，git push origin hexo，把刚才删除操作引起的本地仓库变化更新到远程，此时刷新下 github 端博客hexo分支，应该已经被清空了。 将上述 .git 文件夹复制到本机本地博客根目录下（即含有 themes、source 等文件夹的那个目录），现在可以把上述 clone 的本地仓库删掉了，因为它已经没有用了，本机博客目录已经变成可以和 hexo 分支相连的仓库了。 将博客目录下 themes 文件夹下每个主题文件夹里面的 .git .gitignore 删掉。 cd 到博客目录，git add -A ，git commit -m &quot;some description&quot;，git push origin hexo，将博客目录下所有文件更新到 hexo 分支。如果上一步没有删掉 .git .gitignore，主题文件夹下内容将传不上去。至此原电脑上的操作结束。 在新电脑上操作，先把新电脑上环境安装好，node.js、git、hexo、ssh key 也创建和添加好。 安装hexo：npm install -g hexo-cli。 选好博客安装的目录， git clone git@github.com:username/username.github.io.git 。 这个时候一般是默认分支，如果默认分支是master，那么需要在git中操作checkout切换到hexo配置文件那个分支， cd 到博客目录，然后再根据packge.json安装依赖执行npm install。 hexo g ，hexo s启动博客服务。正常的话，浏览器打开 localhost:4000 可以看到博客了。至此新电脑操作完毕。 以后无论在哪台电脑上，更新以及提交博客，依次执行，git pull，git add -A ，git commit -m &quot;--&quot;，git push origin hexo，hexo clean &amp;&amp; hexo g &amp;&amp; hexo d 即可。 给git配置sock5代理 由于某些众所周知的缘故，所以github时不时的有时候速度会很慢，这种情况下本地代理就派上用场了。这里以给git的SSH传输方式配置本地SS代理为例说下配置过程：打开~/.ssh/config文件。在Host github *.github.com下添加以下字段：Proxycommand ssh -S 127.0.0.1:1080 %h %p3.测试连接保存退出后重启git bash。输入ssh -vT git@github.com，当返回Hi username! You&#39;ve successfully authenticated, but GitHub does not provide shell access.的时候即说明配置成功之后github的所有流量都会走本地的ss代理。 链接： https://www.zhihu.com/question/21193762/answer/369050999 http://link.zhihu.com/?target=https%3A//www.jianshu.com/p/fceaf373d797 来源：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。]]></content>
+      <categories>
+        <category>hexo博客</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+        <tag>branch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[0x05_常用Markdown语法]]></title>
+    <url>%2F2019%2F02%2F21%2F0x05_%E5%B8%B8%E7%94%A8Markdown%E8%AF%AD%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[删除线（在文本两端各打俩~) 这是删除线 [ ] ##### 代码块（单独一行使用\12``` 这里是代码段 [ ] ##### 添加空白行（新起一行，使用\标识符) [ ] ##### 分割线（新起一行使用***、+++或—可以生成分割线） +++ 同样支持转义字符 \* (*) # (#) ` ` (``)``` (```) ##### 无序列表基础语法（+或 -或 *加空格） 无序列表1 (* 无序列表1) 无序列表2 (- 无序列表2) 无序列表3 (+ 无序列表3) ##### 有序列表基础语法（数字加点加空格，会从第一个数字开始递增） 有序列表 （3. 有序列表） 有序列表 （2.有序列表） 有序列表3 （4.有序列表） 有序列表4 （666.有序列表） ##### 列表的层次（在列表符号前加空格） 列表层次1 列表层次2 列表层次3 列表层次4 ##### 标题的大小（#的数量加空格） 标题1标题2标题3标题4标题5标题6 [ ] ##### 斜体(文字前后各用一个*)我是斜体 [ ] ##### 粗体（文字前后各用2个*可以把文字变成粗体）我是粗体 [ ] ##### 斜粗体（文字前后各用3个可以把文字变成斜粗体）**我是斜粗体*** [ ] ##### 引用的开始和结束（在行首使用&gt;标识符表示引用段的开始，新起一行用来退出引用模块） 引用 退出引用 ##### 引用的分层（在行首连续使用多个&gt;可以对引用进行分层） 引用层次1 引用层次2 引用层次3 引用层次2-1 引用层次3-1 引用层次1-1 [ ] ##### 超链接（[链接名](url)） 百度 [ ] ##### 图片(![图片名](图片链接))]]></content>
+      <categories>
+        <category>hexo博客</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[0x04_hexo categories和tags页面不显示解决方法]]></title>
+    <url>%2F2019%2F02%2F20%2F0x04_hexo%20categories%E5%92%8Ctags%E9%A1%B5%E9%9D%A2%E4%B8%8D%E6%98%BE%E7%A4%BA%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[BUG的发现添加B1og的categories和tags模块时： 12hexo new page &quot;tags&quot;hexo new page &quot;categories&quot; 发现显示空白 解决方法 编辑/source/tags/index.md，添加如下代码： 1layout: &quot;tags&quot; 编辑/source/categories/index.md，添加如下代码： 1layout: &quot;categories&quot;]]></content>
+      <categories>
+        <category>hexo博客</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>categories</tag>
+        <tag>tags</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[0x02_ubuntu中shadowsocks配置]]></title>
+    <url>%2F2018%2F06%2F06%2F0x02_ubuntu%E4%B8%ADshadowsocks%E7%9A%84%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[安装shadowsocks首先你得有一个shadowsocks帐号,可以自己购买VPS搭建,也可购买,这里就不多叙述了. 安装shadowsocks 1sudo apt-get install shadowsocks 设置shadowsocks.json配置文件我一般把他存在/home/user/tools/里,进入目录 1sudo vim /home/user/tools/shadowsocks.json 格式如下 123456789&#123; &quot;server&quot;:&quot;xx.xx.xx.xx&quot;, &quot;server_port&quot;:9527, &quot;local_address&quot;:&quot;127.0.0.1&quot;, &quot;local_port&quot;:1080, &quot;password&quot;:&quot;your_passwd&quot;, &quot;timeout&quot;:300, &quot;method&quot;:&quot;aes-256-cfb&quot;&#125; 接下来就可以用sslocal命令启动ss代理服务了. 但是每次开机都要手动输入太low了不是.]]></content>
+      <categories>
+        <category>shadowsocks</category>
+      </categories>
+      <tags>
+        <tag>shadowsocks</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[0x01.虚拟机中安装Kali Linux 及之后要做的事情]]></title>
+    <url>%2F2018%2F05%2F28%2F0x01_%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85Kali%20Linux%20%E5%8F%8A%E4%B9%8B%E5%90%8E%E8%A6%81%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85%2F</url>
+    <content type="text"><![CDATA[1. 参考文献Kali 安装详细步骤 安装 Kali Linux 2018.1 及之后的事 2. Kali Linux 在虚拟机中的安装 镜像下载镜像源文件在清华资源站下载，使用VMware Workstation 12安装。 创建普通用户一开始默认用root账户登录,一不小心就作了大死把bin目录全删了,重装了几次血泪教训,还是保险点用普通用户+sudo吧1234#创建用户useradd username -p password #删除用户userdel username 更换国内源然后进行更换国内源，建议使用阿里云源： 首先打开 sources.list1vim /etc/apt/sources.list 然后添加源（阿里云的源就够用啦）12345678910111213141516171819#阿里云deb http://mirrors.aliyun.com/kali kali-rolling main non-free contribdeb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib#中科大deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contribdeb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib#浙大deb http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-freedeb-src http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-free#清华大学deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-freedeb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free#官方源deb http://http.kali.org/kali kali-rolling main non-free contribdeb-src http://http.kali.org/kali kali-rolling main non-free contrib 安装VMware Tools依次选择“虚拟机” –“安装VMware Tools” 加载完成后，复制VMware Tools-10.0.10***.tar.gz （不同版本具体名字不同）到 home 目录 tools 文件夹（tools文件夹需要手动创建），解压：1tar -xzvf VMware Tools ***.tar.gz，VMware Tools ***.tar.gz 根据自己文件内容要换成具体的文件名。进入vmware-tools-distrib后执行1./vmware-install.pl 如果第一次询问是否安装，输入yes，之后一路回车即可，看到Enjoy，–the WMware team即表示安装完成重启后选择“进入全屏模式”，能进入全屏模式说明增强工具已经安装成功。 更新系统数字签名1wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add 很重要,很重要,真的很重要!!!重要的事情说三遍,没有这一步t-get根本用不了 更新软件包依次执行下面三行代码,根据网速大概要15-20分钟123sudo apt-get update#更新软件sudo apt-get upgradesudo apt-get dist-upgrade #升级系统 3. Kali安装后的用户体验提升安装中文输入法由于Kali不自带中文输入法,所以,你懂得,自己动手风衣足食 下载搜狗输入法linux版：搜狗输入法linux版选择 64 位版本确认下载完成后进入安装环节。 输入法需要用到 fcitx，所以需要先安装1apt-get install fcitx fcitx-config-gtk2 进入到“下载”目录中（可以使用复制粘贴），执行1dpkg -i sogoupinyin_2.1.0.0082_amd64.deb 如果出现报依赖问题，根据提示输入1apt-get install -f 重新执行1dpkg -i sogoupinyin_2.1.0.0082_amd64.deb 重启后，使用shift键切换中英文输入法即可 安装谷歌chrome浏览器这里我选择不使用自带的firefox浏览器,二者都是开源浏览器但是有谷歌帐号的话用户体验差别不是一般的大啊,用过的肯定都知道: )chrome登录后会自动同步书签,插件设置,主题设置,真正一键搞定啊有没有大佬就是大佬,不像火狐”科学上网”安个插件都卡半天废话不多说,开搞~ 根据自己系统时32位或64位选择安装包,不过现在一般都是64位了吧1wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb cd进入下载目录1sudo dpkg -i google-chrome-stable_current_amd64.deb Enjoy Chrome要打开Google Chrome，请点击Unity Launcher顶部的“破折号”按钮，然后输入“Google Chrome”。与短语匹配的项目开始显示在搜索框下方。当显示“Google Chrome”项目时，点击它可启动Chrome。如果有谷歌帐号,在下面翻墙后就可以很方便了. Kali翻墙—–shadowsocks+proxychains+chrome-switchyomega插件首先你得有一个shadowsocks帐号,可以自己购买VPS搭建,也可购买,这里就不多叙述了. 安装shadowsocks1sudo apt-get install shadowsocks 设置shadowsocks.json配置文件我一般把他存在/home/user/tools/里,进入目录1sudo vim /home/user/tools/shadowsocks.json 格式如下123456789&#123; &quot;server&quot;:&quot;xx.xx.xx.xx&quot;, &quot;server_port&quot;:9527, &quot;local_address&quot;:&quot;127.0.0.1&quot;, &quot;local_port&quot;:1080, &quot;password&quot;:&quot;your_passwd&quot;, &quot;timeout&quot;:300, &quot;method&quot;:&quot;aes-256-cfb&quot;&#125; 启用本地ss服务12#后台启动-d start本地服务sudo sslocal -c /home/user/tools/shadowsocks.json -d start 利用proxychains暂时科学上网下载chrome插件为什么要用proxychains呢?因为要开启chrome代理,先要下载switchyomega插件,而要下载此插件,需要翻墙…相当于switchyomega是chrome自带的代理插件,我们要先借助别的插件翻墙来安装chrome的插件但proxychains只能分应用代理面倒的丝..所以proxychains只做过渡用,12#安装sudo apt-get install proxychains 配置proxychains1sudo vim /etc/proxychains.conf 注释其最下面一行1socks4 127.0.0.1 1080 并添加一行12socks5 127.0.0.1 1080#注意!! 这里的地址要和你shadowsocks.json里的local_address与local_port一致 proxychains使用格式: proxychains + 应用名1proxychains google-chrome 此时打开的chrome浏览器就可以科学上网了 安装配置switchomega插件打开chrome网上商店-搜索’swithyomega’-添加到chrome在浏览器右上角会出现一个圆圈右击圆圈–’选项’–在’proxy’选项中填入socks5代理(和proxychains配置一致) 之后配置”autoproxy”情景: 其中”规则列表网址”为 1https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt 完成后别忘了左边”应用选项”,最后关闭此页面 在右上角圆圈选择”autoproxy” done!]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Kali</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ox00.A To-do List]]></title>
+    <url>%2F2018%2F05%2F25%2F0x00_A%20To-do%20List%2F</url>
+    <content type="text"><![CDATA[A To-do List 站点建设（评论etc.） 自建图库 linux下搭建shadowsocksR并支持chacha20-ietf加密方式 连续LBS请求下位置隐私保护方案]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>鸽手闲话</tag>
+      </tags>
+  </entry>
+</search>

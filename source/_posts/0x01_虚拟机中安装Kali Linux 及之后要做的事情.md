@@ -19,6 +19,8 @@ tags:
 
 ## 2. Kali Linux 在虚拟机中的安装
 
+<!-- more -->
+
 ### 镜像下载
 
 镜像源文件在清华资源站下载，使用VMware Workstation 12安装。

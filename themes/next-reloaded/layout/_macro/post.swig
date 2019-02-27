@@ -1,4 +1,4 @@
-{% macro render(post, is_index, post_extra_class) %}
+{% macro render(post, is_index, is_pv, post_extra_class) %}
 
   {% set headlessPost = Array.prototype.indexOf.call(['quote', 'picture'], post.type) > -1 %}
 
@@ -213,6 +213,11 @@
             <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
             </span>
           {% endif %}
+
+	  {% if is_pv %}
+  	    <span class="post-meta-divider">|</span>
+  	    <span id="busuanzi_value_page_pv"></span>次阅读
+	  {% endif %}
 
           {% if config.symbols_count_time.symbols or config.symbols_count_time.time %}
             <div class="post-symbolscount">

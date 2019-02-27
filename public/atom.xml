@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-27T18:57:42.165Z</updated>
+  <updated>2019-02-27T20:24:23.927Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,28 +17,48 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>0xff_B1og Renew</title>
+    <link href="http://yoursite.com/2333/02/17/0xff_B1og%20Renew/"/>
+    <id>http://yoursite.com/2333/02/17/0xff_B1og Renew/</id>
+    <published>2333-02-16T18:34:06.000Z</published>
+    <updated>2019-02-27T20:24:23.927Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;B1og-Renew&quot;&gt;&lt;a href=&quot;#B1og-Renew&quot; class=&quot;headerlink&quot; title=&quot;B1og Renew&quot;&gt;&lt;/a&gt;B1og Renew&lt;/h1&gt;&lt;p&gt;由于我的重度拖延症&lt;/p&gt;
+&lt;p&gt;很多事情都后知后觉 落后于人&lt;/p&gt;
+&lt;p&gt;像是临近毕业想起要兼职&lt;/p&gt;
+&lt;p&gt;或是考试在即才想起学习&lt;/p&gt;
+&lt;p&gt;抑或是服务器将到期才想起更新B1og..&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;如果说每个 &lt;strong&gt;拖延症患者&lt;/strong&gt; 都是一名出色的鸽手&lt;/p&gt;
+&lt;p&gt;那我就是其中最三分钟热度的那只 &lt;strong&gt;咕咕咕&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;
+    
+    </summary>
+    
+      <category term="置顶" scheme="http://yoursite.com/categories/%E7%BD%AE%E9%A1%B6/"/>
+    
+    
+      <category term="鸽手闲话" scheme="http://yoursite.com/tags/%E9%B8%BD%E6%89%8B%E9%97%B2%E8%AF%9D/"/>
+    
+  </entry>
+  
+  <entry>
     <title>0x06_利用branch多平台同步管理Github博客</title>
     <link href="http://yoursite.com/2019/02/21/0x06_%E5%88%A9%E7%94%A8Github%E5%88%86%E6%94%AF%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%90%8C%E6%AD%A5%E7%AE%A1%E7%90%86%E5%8D%9A%E5%AE%A2/"/>
     <id>http://yoursite.com/2019/02/21/0x06_利用Github分支多平台同步管理博客/</id>
     <published>2019-02-20T19:26:46.000Z</published>
-    <updated>2019-02-27T18:57:42.165Z</updated>
+    <updated>2019-02-27T19:44:50.669Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;之前搭的博客许久没有使用 &lt;/p&gt;
+      &lt;p&gt;之前搭的博客许久没有使用 &lt;/p&gt;
 &lt;p&gt;面对凌乱的repo&lt;/p&gt;
 &lt;p&gt;一时不知从何下手 &lt;/p&gt;
 &lt;p&gt;一顿操作差点删库&lt;/p&gt;
 &lt;p&gt;查了很多B1og最后在知乎上结合两位大佬的经验理清了思路&lt;/p&gt;
 &lt;hr&gt;
 &lt;hr&gt;
-&lt;h4 id=&quot;背景&quot;&gt;&lt;a
-        
-      
     
     </summary>
     
@@ -56,22 +76,18 @@
     <link href="http://yoursite.com/2019/02/21/0x05_%E5%B8%B8%E7%94%A8Markdown%E8%AF%AD%E6%B3%95/"/>
     <id>http://yoursite.com/2019/02/21/0x05_常用Markdown语法/</id>
     <published>2019-02-20T18:55:46.000Z</published>
-    <updated>2019-02-27T18:57:35.285Z</updated>
+    <updated>2019-02-27T19:45:20.669Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;ul&gt;
+      &lt;ul&gt;
 &lt;li style=&quot;list-style: none&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt; 删除线（在文本两端各打俩~)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;del&gt;这是删除线&lt;/del&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;[ ] #####
-        
-      
+&lt;li&gt;&lt;p&gt;[ ] ##### 代码块（单独一行使用\&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;```&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    这里是代码段&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;[ ] ##### 添加空白行（新起一行，使用\&lt;br&gt;标识符)&lt;br&gt;&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
@@ -87,17 +103,14 @@
     <link href="http://yoursite.com/2019/02/20/0x04_hexo%20categories%E5%92%8Ctags%E9%A1%B5%E9%9D%A2%E4%B8%8D%E6%98%BE%E7%A4%BA%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
     <id>http://yoursite.com/2019/02/20/0x04_hexo categories和tags页面不显示解决方法/</id>
     <published>2019-02-19T18:55:06.000Z</published>
-    <updated>2019-02-27T19:14:30.319Z</updated>
+    <updated>2019-02-27T19:45:36.748Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h4 id=&quot;BUG的发现&quot;&gt;&lt;a href=&quot;#BUG的发现&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h4 id=&quot;BUG的发现&quot;&gt;&lt;a href=&quot;#BUG的发现&quot; class=&quot;headerlink&quot; title=&quot;BUG的发现&quot;&gt;&lt;/a&gt;BUG的发现&lt;/h4&gt;&lt;p&gt;添加B1og的&lt;code&gt;categories&lt;/code&gt;和&lt;code&gt;tags&lt;/code&gt;模块时：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;hexo new page &amp;quot;tags&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo new page &amp;quot;categories&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;发现显示空白&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
@@ -113,48 +126,19 @@
   </entry>
   
   <entry>
-    <title>0x03_B1og Renew</title>
-    <link href="http://yoursite.com/2019/02/17/0x03_B1og%20Renew/"/>
-    <id>http://yoursite.com/2019/02/17/0x03_B1og Renew/</id>
-    <published>2019-02-16T18:34:06.000Z</published>
-    <updated>2019-02-27T18:31:42.940Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;B1og-Renew&quot;&gt;&lt;a href=&quot;#B1og-Renew&quot; class=&quot;headerlink&quot; title=&quot;B1og Renew&quot;&gt;&lt;/a&gt;B1og Renew&lt;/h1&gt;&lt;p&gt;由于我的重度拖延症&lt;/p&gt;
-&lt;p&gt;很多事情都后知后觉
-        
-      
-    
-    </summary>
-    
-      <category term="日常" scheme="http://yoursite.com/categories/%E6%97%A5%E5%B8%B8/"/>
-    
-    
-      <category term="鸽手闲话" scheme="http://yoursite.com/tags/%E9%B8%BD%E6%89%8B%E9%97%B2%E8%AF%9D/"/>
-    
-  </entry>
-  
-  <entry>
     <title>0x02_ubuntu中shadowsocks配置</title>
     <link href="http://yoursite.com/2018/06/06/0x02_ubuntu%E4%B8%ADshadowsocks%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
     <id>http://yoursite.com/2018/06/06/0x02_ubuntu中shadowsocks的配置/</id>
     <published>2018-06-05T16:51:56.000Z</published>
-    <updated>2019-02-27T18:57:58.717Z</updated>
+    <updated>2019-02-27T19:53:09.140Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h3 id=&quot;安装shadowsocks&quot;&gt;&lt;a href=&quot;#安装shadowsocks&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h3 id=&quot;安装shadowsocks&quot;&gt;&lt;a href=&quot;#安装shadowsocks&quot; class=&quot;headerlink&quot; title=&quot;安装shadowsocks&quot;&gt;&lt;/a&gt;安装shadowsocks&lt;/h3&gt;&lt;p&gt;首先你得有一个shadowsocks帐号,可以自己购买VPS搭建,也可购买,这里就不多叙述了.&lt;/p&gt;
+&lt;p&gt;安装shadowsocks&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install shadowsocks&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;设置shadowsocks.json配置文件我一般把他存在/home/user/tools/里,进入目录&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo vim /home/user/tools/shadowsocks.json&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -170,17 +154,15 @@
     <link href="http://yoursite.com/2018/05/28/0x01_%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85Kali%20Linux%20%E5%8F%8A%E4%B9%8B%E5%90%8E%E8%A6%81%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/"/>
     <id>http://yoursite.com/2018/05/28/0x01_虚拟机中安装Kali Linux 及之后要做的事情/</id>
     <published>2018-05-27T16:51:56.000Z</published>
-    <updated>2019-02-27T18:58:11.017Z</updated>
+    <updated>2019-02-27T19:53:46.140Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;1-参考文献&quot;&gt;&lt;a href=&quot;#1-参考文献&quot; class=&quot;headerlink&quot; title=&quot;1. 参考文献&quot;&gt;&lt;/a&gt;1. 参考文献&lt;/h2&gt;&lt;p&gt;&lt;a
-        
-      
+      &lt;h2 id=&quot;1-参考文献&quot;&gt;&lt;a href=&quot;#1-参考文献&quot; class=&quot;headerlink&quot; title=&quot;1. 参考文献&quot;&gt;&lt;/a&gt;1. 参考文献&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/u012318074/article/details/71601382/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Kali 安装详细步骤&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/metaphorxi/article/details/79639862&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;安装 Kali Linux 2018.1 及之后的事&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;2-Kali-Linux-在虚拟机中的安装&quot;&gt;&lt;a href=&quot;#2-Kali-Linux-在虚拟机中的安装&quot; class=&quot;headerlink&quot; title=&quot;2. Kali Linux 在虚拟机中的安装&quot;&gt;&lt;/a&gt;2. Kali Linux 在虚拟机中的安装&lt;/h2&gt;
     
     </summary>
     
@@ -196,18 +178,16 @@
     <link href="http://yoursite.com/2018/05/25/0x00_A%20To-do%20List/"/>
     <id>http://yoursite.com/2018/05/25/0x00_A To-do List/</id>
     <published>2018-05-24T16:51:56.000Z</published>
-    <updated>2019-02-27T19:19:30.253Z</updated>
+    <updated>2019-02-27T20:19:22.452Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h3 id=&quot;A-To-do-List&quot;&gt;&lt;a href=&quot;#A-To-do-List&quot; class=&quot;headerlink&quot; title=&quot;A To-do List&quot;&gt;&lt;/a&gt;A To-do List&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;h5
-        
-      
+      &lt;h3 id=&quot;A-To-do-List&quot;&gt;&lt;a href=&quot;#A-To-do-List&quot; class=&quot;headerlink&quot; title=&quot;A To-do List&quot;&gt;&lt;/a&gt;A To-do List&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;h5 id=&quot;站点建设（评论etc-）&quot;&gt;&lt;a href=&quot;#站点建设（评论etc-）&quot; class=&quot;headerlink&quot; title=&quot;站点建设（评论etc.）&quot;&gt;&lt;/a&gt;站点建设（评论etc.）&lt;/h5&gt;&lt;/li&gt;
+&lt;li&gt;&lt;h5 id=&quot;自建图库&quot;&gt;&lt;a href=&quot;#自建图库&quot; class=&quot;headerlink&quot; title=&quot;自建图库&quot;&gt;&lt;/a&gt;自建图库&lt;/h5&gt;&lt;/li&gt;
+&lt;li&gt;&lt;h5 id=&quot;linux下搭建shadowsocksR并支持chacha20-ietf加密方式&quot;&gt;&lt;a href=&quot;#linux下搭建shadowsocksR并支持chacha20-ietf加密方式&quot; class=&quot;headerlink&quot; title=&quot;linux下搭建shadowsocksR并支持chacha20-ietf加密方式&quot;&gt;&lt;/a&gt;linux下搭建shadowsocksR并支持chacha20-ietf加密方式&lt;/h5&gt;&lt;/li&gt;
+&lt;li&gt;&lt;h5 id=&quot;连续LBS请求下位置隐私保护方案&quot;&gt;&lt;a href=&quot;#连续LBS请求下位置隐私保护方案&quot; class=&quot;headerlink&quot; title=&quot;连续LBS请求下位置隐私保护方案&quot;&gt;&lt;/a&gt;连续LBS请求下位置隐私保护方案&lt;/h5&gt;&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
