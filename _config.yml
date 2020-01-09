@@ -99,6 +99,6 @@ search:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: git@github.com:B1ahB1ah/B1ahB1ah.github.io.git
+  repository: git@github.com:b1ahb1ah/b1ahb1ah.github.io.git
   branch: master
 
