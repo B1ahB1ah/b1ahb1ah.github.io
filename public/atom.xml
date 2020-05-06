@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>鸽棚</title>
+  <title>你来啦~</title>
   
-  <subtitle>咕 咕咕咕 咕咕..</subtitle>
+  <subtitle>Do not go gentle into that good night.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
@@ -43,37 +43,11 @@
   </entry>
   
   <entry>
-    <title>0x08_To My Dear Hailey</title>
-    <link href="http://yoursite.com/2020/02/02/0x08_%E7%BB%99Hailey%E7%9A%84%E9%81%93%E6%AD%89%E4%BF%A1/"/>
-    <id>http://yoursite.com/2020/02/02/0x08_给Hailey的道歉信/</id>
-    <published>2020-02-02T15:26:27.000Z</published>
-    <updated>2020-02-02T21:16:17.005Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;给亲爱的海莉的一封道歉信5000字（其一）&quot;&gt;&lt;a href=&quot;#给亲爱的海莉的一封道歉信5000字（其一）&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="hexo博客" scheme="http://yoursite.com/categories/hexo%E5%8D%9A%E5%AE%A2/"/>
-    
-    
-      <category term="鸽手闲话" scheme="http://yoursite.com/tags/%E9%B8%BD%E6%89%8B%E9%97%B2%E8%AF%9D/"/>
-    
-  </entry>
-  
-  <entry>
     <title>0x07_SSR+魔改BBR(Debian平台)</title>
     <link href="http://yoursite.com/2020/01/01/0x07_SSR+%E9%AD%94%E6%94%B9BBR(Debian%E5%B9%B3%E5%8F%B0)%20/"/>
     <id>http://yoursite.com/2020/01/01/0x07_SSR+魔改BBR(Debian平台) /</id>
     <published>2020-01-01T03:08:27.000Z</published>
-    <updated>2020-01-09T02:57:36.618Z</updated>
+    <updated>2020-02-03T12:13:09.168Z</updated>
     
     <summary type="html">
     
